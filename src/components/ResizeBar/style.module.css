@@ -1,0 +1,11 @@
+.resizeBar {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  background-color: #333;
+  z-index: 1;
+}
+
+.resizeBar:hover {
+  cursor: row-resize;
+}

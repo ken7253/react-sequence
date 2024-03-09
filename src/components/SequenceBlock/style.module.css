@@ -1,0 +1,39 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: fit-content;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  display: var(--guideline-display-type);
+  top: 0;
+  left: var(--guideline-display-position);
+  height: 100%;
+  width: 1px;
+  z-index: 1;
+  background-color: red;
+}
+
+.header {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  background-color: #555;
+}
+
+.marker {
+  font-size: 10px;
+  font-family: monospace;
+  width: 60px;
+  color: #eee;
+  border-left: solid 1px #aaa;
+  padding-left: 2px;
+}
