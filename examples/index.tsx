@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 
-import { ResizeBar, SequenceBlock, SequenceLine } from '../src/components';
+import { ResizeBar, SequenceBlock, SequenceLine, DroppableItem } from '../src/components';
 import { TimeLineContext } from '../src/context/TimeLineContext';
 
 export const Example: FC = () => {
@@ -17,9 +17,19 @@ export const Example: FC = () => {
   return (
     <TimeLineContext.Provider value={{ height: itemHeight }}>
       <SequenceBlock resizeBar={<ResizeBar onChangeHeight={timeLineHeightChangeHandler} />}>
-        {new Array(5).fill(null).map(() => (
-          <SequenceLine />
-        ))}
+        {[
+          <SequenceLine items={[<DroppableItem defaultTitle="item-1-1" />]} />,
+          <SequenceLine />,
+          <SequenceLine
+            items={[
+              <DroppableItem defaultTitle="item-3-1" />,
+              <DroppableItem defaultTitle="item-3-2" />,
+              <DroppableItem defaultTitle="item-3-3" />,
+            ]}
+          />,
+          <SequenceLine />,
+          <SequenceLine />,
+        ]}
       </SequenceBlock>
     </TimeLineContext.Provider>
   );
